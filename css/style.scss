@@ -1,0 +1,138 @@
+// --- 1. KHAI BÁO BIẾN ---
+$bg-dark: #0f172a;
+$bg-card: #ffffff;
+$text-light: #cbd5e1;
+$text-dark: #1e293b;
+$accent-blue: #38bdf8;
+$accent-green: #2ecc71;
+
+// --- 2. RESET & CHUNG ---
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: $bg-dark;
+  color: $text-light;
+  line-height: 1.6;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+// --- 3. NAVBAR ---
+.navbar {
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  background: rgba($bg-dark, 0.95); backdrop-filter: blur(10px);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 15px 50px;
+  .logo { font-size: 1.5rem; font-weight: bold; span { color: $accent-blue; } }
+  .nav-links {
+    display: flex; gap: 30px; list-style: none;
+    a:hover { color: $accent-blue; }
+  }
+  .hamburger { display: none; cursor: pointer; font-size: 1.5rem; }
+}
+
+// --- 4. HERO SECTION ---
+.hero {
+  height: 100vh; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; text-align: center;
+  .profile-img {
+    width: 200px; height: 200px; border-radius: 50%;
+    overflow: hidden; border: 4px solid $accent-blue;
+    margin: 0 auto 20px; // Canh giữa ảnh
+    img { width: 100%; height: 100%; object-fit: cover; }
+  }
+  h1 { font-size: 3rem; span { color: $accent-blue; } }
+  .btn {
+    display: inline-block; margin-top: 25px;
+    padding: 12px 30px; border: 1px solid $accent-blue;
+    color: $accent-blue; border-radius: 5px;
+    &:hover { background: $accent-blue; color: $bg-dark; }
+  }
+}
+
+// --- 5. ABOUT & HOBBIES ---
+.about {
+  padding: 100px 0; background: darken($bg-dark, 2%);
+  h2 { text-align: center; margin-bottom: 40px; font-size: 2.5rem; }
+  .about-text {
+    max-width: 850px; margin: 0 auto 50px; text-align: justify;
+    p { margin-bottom: 15px; font-size: 1.1rem; }
+  }
+  .hobbies-section {
+    h3 { text-align: center; margin-bottom: 30px; color: $accent-blue; }
+    .game-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px; max-width: 900px; margin: 0 auto;
+    }
+    .game-card {
+      background: #1e293b; padding: 15px; border-radius: 12px;
+      text-align: center; border: 1px solid #334155; transition: 0.3s;
+      .game-img-wrapper {
+        width: 100%; aspect-ratio: 1/1; border-radius: 8px;
+        overflow: hidden; margin-bottom: 10px;
+        img { width: 100%; height: 100%; object-fit: cover; }
+      }
+      h4 { color: #fff; font-size: 1rem; }
+      &:hover { transform: translateY(-10px); }
+    }
+  }
+}
+
+// --- 6. LABS SECTION ---
+.labs {
+  padding: 100px 0; background: #f8fafc; color: $text-dark;
+  h2 { text-align: center; margin-bottom: 50px; }
+  .lab-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;
+  }
+  .lab-card {
+    background: $bg-card; padding: 25px; border-radius: 10px;
+    display: flex; flex-direction: column; height: 100%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    h3 { margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+    
+    .lab-links-list {
+      margin-bottom: 20px;
+      .item-link {
+        display: block; color: #64748b; margin-bottom: 8px;
+        &:hover {
+          color: $accent-blue; transform: translateX(8px);
+          font-weight: bold; &::before { content: '→ '; }
+        }
+      }
+    }
+    .lab-btn {
+      margin-top: auto; background: $accent-green; color: #fff;
+      text-align: center; padding: 12px; border-radius: 6px; font-weight: bold;
+      &:hover { background: darken($accent-green, 8%); }
+    }
+  }
+}
+
+// --- 7. FOOTER ---
+footer {
+  background: #fff; color: $text-dark; padding: 60px 0 20px;
+  .footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
+  .footer-logo { font-size: 2rem; font-weight: bold; margin-bottom: 15px; span { color: $accent-blue; } }
+  .footer-col h3 { margin-bottom: 15px; }
+  .footer-col p { color: #64748b; margin-bottom: 8px; i { margin-right: 10px; color: $accent-blue; } }
+  .footer-bottom {
+    margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0;
+    text-align: center; font-size: 0.95rem;
+  }
+}
+
+// --- 8. MOBILE RESPONSIVE ---
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 25px;
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; width: 100%;
+      background: $bg-dark; flex-direction: column; padding: 20px; text-align: center;
+      &.active { display: flex; }
+    }
+    .hamburger { display: block; }
+  }
+  .hero h1 { font-size: 2.2rem; }
+}
