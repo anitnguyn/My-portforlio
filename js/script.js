@@ -16,19 +16,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. Đổ dữ liệu Game yêu thích (Lab 8 - Bài 2)
+    // 2. Đổ dữ liệu Game yêu thích (Đã đổi Dead by Daylight thành TFT)
     const favoriteGames = [
         { name: 'LMHT', img: 'images/lmht.jpeg' },
         { name: 'Valorant', img: 'images/valorant.jpg' },
         { name: 'PUBG', img: 'images/pubg.jpg' },
-        { name: 'Dead By Daylight', img: 'images/deadbydaylight.jpg' }
+        { name: 'TFT', img: 'images/tft.png' } 
     ];
 
     const gameContainer = document.getElementById('game-list');
 
     if (gameContainer) {
         favoriteGames.forEach(game => {
-            // Tạo thẻ div cho mỗi game
             const gameCard = document.createElement('div');
             gameCard.className = 'game-card';
             
@@ -39,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h4>${game.name}</h4>
             `;
             
-            // Hiệu ứng tương tác bằng JS
             gameCard.addEventListener('mouseenter', () => {
                 gameCard.style.boxShadow = '0 10px 20px rgba(56, 189, 248, 0.2)';
             });
